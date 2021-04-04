@@ -1,0 +1,30 @@
+{
+  "name": "ethereum-data",
+  "version": "1.0.0",
+  "description": "Exploration of pulling and tracking Ethereum data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theforager/ethereum-data.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theforager/ethereum-data/issues"
+  },
+  "homepage": "https://github.com/theforager/ethereum-data#readme",
+  "dependencies": {
+    "@uniswap/sdk": "^3.0.3",
+    "hardhat": "^2.1.2"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.3.0",
+    "ethers": "^5.1.0"
+  }
+}
