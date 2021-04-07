@@ -1,4 +1,4 @@
-import { ChainId, WETH, Fraction, Pair, Token, TokenAmount, Fetcher } from '@uniswap/sdk';
+import { ChainId, WETH, Fraction, Pair, Token, TokenAmount, Fetcher } from '@uniswap/v2-sdk';
 import { ethers } from 'ethers';
 
 const alchemyApiKey = process.env.ALCHEMY_ETHEREUM_DATA_KEY;
