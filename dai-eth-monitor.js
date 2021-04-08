@@ -14,11 +14,24 @@ const api = new ethers.providers.AlchemyProvider(ChainId.MAINNET, alchemyApiKey)
 
 const contract = new ethers.Contract(ethDaiAddress, IUniswapV2Pair.abi, api);
 
-contract.getReserves()
-  .then(v => {
-    let [r0, r1] = v;
-    console.log(`r0: ${r0}  r1: ${r1}`);
-    
-    let price = r0/r1;
-    console.log(`price: ${price}`);
-  });
+async function printPrice() {
+  let [r0, r1] = await contract.getReserves();
+
+  let [t0, t1] = DAI.sortsBefore(ETH) ? [DAI,ETH] : [ETH,DAI];
+  
+  let amt0 = new TokenAmount(t0, r0);
+  let amt1 = new TokenAmount(t1, r1);
+  let p = new Pair(amt0, amt1);
+
+  console.log(`price: ${p.priceOf(ETH).toSignificant(6)}`);
+}
+
+let maxIterations = 100;
+let intervalSeconds = 10;
+let counter = 0;
+
+let interval = setInterval(async () => {
+  counter++;
+  printPrice();
+  if (counter > maxIterations) clearInterval(interval);
+}, 1000 * intervalSeconds);
