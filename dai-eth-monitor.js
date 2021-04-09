@@ -4,7 +4,7 @@ const IUniswapV2Pair = require('@uniswap/v2-core/build/IUniswapV2Pair.json');
 const ethers = require('ethers');
 
 
-const DAI = new Token(ChainId.MAINNET, '0x6b175474e89094c44da98b954eedeac495271d0f', 18, 'DAI');
+const DAI = new Token(ChainId.MAINNET, '0x6b175474e89094c44da98b954eedeac495271d0f', 18, 'DAI', 'DAI');
 const ETH = WETH9[ChainId.MAINNET];
 
 const ethDaiAddress = Pair.getAddress(ETH, DAI);
@@ -23,7 +23,7 @@ async function printPrice() {
   let amt1 = new TokenAmount(t1, r1);
   let p = new Pair(amt0, amt1);
 
-  console.log(`price: ${p.priceOf(ETH).toSignificant(6)}`);
+  console.log(`${DAI.symbol} per ${ETH.symbol}: ${p.priceOf(ETH).toSignificant(6)}`);
 }
 
 let maxIterations = 100;
