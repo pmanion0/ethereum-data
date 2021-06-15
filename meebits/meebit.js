@@ -37,18 +37,18 @@ function writeData(fileName, data) {
  * L
  */
 (async () => { // Pull the Meebit Inventory Data
-  let outputData = readData('mint_data.csv');
+  let outputData = readData('data/mint_data.csv');
 
   if (!outputData) {
     await buildData(web3).then((data) => {
-      writeData('mint_data.csv', data);
+      writeData('data/mint_data.csv', data);
       outputData = data;
     });
   }
 
   return outputData;
 })().then(async (data) => { // Pull the Mint Details for each Meebit
-  let stored = readData('meebit_origin.csv');
+  let stored = readData('data/meebit_origin.csv');
 
   if (!stored) {
     let output = [];
@@ -64,7 +64,7 @@ function writeData(fileName, data) {
       counter++;
 
       if (counter % writeFrequency === 0 || counter === data.length) {
-        writeData(`meebit_origin_${Math.ceil(counter/writeFrequency)}.csv`, output);
+        writeData(`origin_parts/meebit_origin_${Math.ceil(counter/writeFrequency)}.csv`, output);
         output = [];
       }
     }
