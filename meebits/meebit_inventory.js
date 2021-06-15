@@ -1,5 +1,4 @@
-let meebitsContract = '0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7';
-let nullAddress = '0x0000000000000000000000000000000000000000';
+const { meebitsContract, nullAddress } = require('./connection');
 
 
 /**
