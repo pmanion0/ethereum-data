@@ -34,7 +34,7 @@ function writeData(fileName, data) {
 
 
 /**
- * L
+ * PULL & PROCESS ALL DATA
  */
 (async () => { // Pull the Meebit Inventory Data
   let outputData = readData('data/mint_data.csv');
