@@ -1,3 +1,6 @@
+const { web3, meebitsInterface } = require('./connection');
+
+
 /**
  * Get the Meebit details from a transaction hash
  * 
